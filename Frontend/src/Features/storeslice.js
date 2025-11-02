@@ -1,10 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { io } from 'socket.io-client';
-const backendURL = import.meta.env.VITE_BACKEND_URL_FOR_SOCKET;
+import { createSlice } from "@reduxjs/toolkit";
+import { io } from "socket.io-client";
+const backendURL =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_BACKEND_URL_FOR_SOCKET;
 const socket = io(backendURL);
 
 const socketSlice = createSlice({
-  name: 'socket',
+  name: "socket",
   initialState: {
     socket: socket,
   },
