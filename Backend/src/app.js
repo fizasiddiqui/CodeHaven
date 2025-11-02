@@ -18,6 +18,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+// Root route for health check
+app.get("/", (req, res) => {
+  res.json({ message: "Coderover API is running", status: "OK" });
+});
+
 //Import routes
 import userRouter from "./routes/user.routes.js";
 import tweetRouter from "./routes/tweet.routes.js";
